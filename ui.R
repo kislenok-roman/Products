@@ -13,7 +13,8 @@ shinyUI(fillPage(
       tabsetPanel(
         tabPanel("Ввод",
                  textInput("name", "Трата"),
-                 selectInput("group", "Группа", c("Группа" = "")),
+                 selectizeInput("group", "Группа", c("Группа" = ""), options = list(create = TRUE)),
+                 selectInput("payType", "Платёж", c("Наличные" = "asis", "Альфа100" = "alpha100", "Сбер50" = "sber50")),
                  numericInput("amount", "Сумма", 100),
                  dateInput("date", "Дата", value = Sys.Date(), language = "ru"),
                  actionButton("submit", "Добавить"),
